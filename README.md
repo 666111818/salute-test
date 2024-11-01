@@ -21,46 +21,19 @@ https://book.getfoundry.sh/
 $ forge build
 ```
 
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
 
 ### Deploy
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+export PRIVATE_KEY="xxx"密钥
+export RPC_URL="https://arbitrum-sepolia.infura.io/v3/xxxx"（https://app.infura.io/login：注册以后，去申请api）
+
+forge script script/deploy.s.sol:DeployScript --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast
 ```
 
-### Cast
+### verify
 
 ```shell
-$ cast <subcommand>
+forge verify-contract <合约地址> src/SalukiToken.sol:SalukiToken --constructor-args $ABI_ARGS --chain arbitrum-sepolia --api-key <如果你是在以太坊网络上，那就去https://etherscan.io/浏览器上申请api，然后填入>
 ```
 
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
